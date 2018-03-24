@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head" />
+
+<body>
+    <!-- Barra de Navegación superior -->
+    <nav th:replace="fragments/nav" />
+    <div class="container">
+        <h2 th:text="#{friendships.message}">Amistades</h2>
+        <p th:text="#{user.list.intro.message}">Los usuarios que actualmente figuran en el sistema son los siguientes:
+        </p>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th th:text="#{signup.message.name}">Nombre </th>
+                        <th th:text="#{signup.message.surname}">Apellidos </th>
+                        <th class="col-md-1"></th>
+                        <th class="col-md-1"></th>
+                        <th class="col-md-1"></th>
+                        <th class="col-md-1"></th>
+                        <th class="col-md-1"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${usersList}">
+                        <td th:text="${user.email}">uo111111@uniovi.es</td>
+                        <td th:text="${user.name}">Nombre del alumno</td>
+                        <td th:text="${user.lastName}">Apellidos del alumno</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer th:replace="fragments/pagination" />
+    </div>
+    <footer th:replace="fragments/footer" />
+</body>
+
+</html>
